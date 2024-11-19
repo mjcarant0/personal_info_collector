@@ -21,9 +21,19 @@ while True:
             'email_account': email_account
         }
         
+        print(f"Your information: {personal_info[name]}")
+        
+        add_new_info = input("Do you want to add new information? YES or NO: ").upper()
+        
     except:
         print("Invalid Input")
+    
+    if add_new_info == "YES":
+        continue
+    elif add_new_info == "NO":
         break
+    else:
+        print("Invalid Input")
 #Add information in personal_info_collector.txt file
 
 #Print user information
