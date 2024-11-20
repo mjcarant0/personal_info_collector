@@ -1,9 +1,18 @@
+import re #condition for name
+
 #Use dictionary to store user's personal information
 personal_info = {}
 #Use while loop to collect information
 while True:
     try:
-        name = input("Name: ")
+        while True: #loop and condition for name
+            name = input("Name: ")
+            
+            if not re.match(r"^[A-Za-z\s'-.]+$", name): 
+                    print("Invalid name. Please try again.")
+            else: 
+                break
+            
         age = int(input("Age: "))
         birthday = input("Birthday: ")
         sex = input("Sex: ")
