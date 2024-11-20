@@ -67,8 +67,15 @@ while True:
             else:
                 print("Invalid sex. Please try again.")
         
-        address = input("Address: ")
-        
+        while True: #loop and condition for address
+            print("Address")
+            
+            address_line = input("Address Line: ").capitalize()
+            country = input("Country: ").capitalize()
+            
+            address = f"{address_line}, {country}"
+            break
+            
         email_account = input("Email account: ")
         
         while True: #loop and condition for marital status
@@ -102,7 +109,6 @@ while True:
         print(f"Email Account: {personal_info[name]['email_account']}")
         print(f"Marital Status: {personal_info[name]['marital_status']}")
         print("-----------------------------------------------------------")
-        
         
         #Ask user if they want to add another personal information
         add_new_info = input("Do you want to add new information? YES or NO: ").upper()
