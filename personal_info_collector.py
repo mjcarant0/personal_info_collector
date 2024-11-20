@@ -67,20 +67,20 @@ while True:
             else:
                 print("Invalid sex. Please try again.")
         
-        phone_number = int(input("Phone Number: "))
-            
         address = input("Address: ")
         
         email_account = input("Email account: ")
+        
+        marital_status = input("Marital Status (Single, Married, Divorced, Separated, or Widowed)").capitalize()
         
         personal_info[name] = {
             'name': name,
             'age': age,
             'birthday': birthday,
             'sex': sex,
-            'phone_number': phone_number,
             'address': address,
-            'email_account': email_account
+            'email_account': email_account,
+            'marital_status': marital_status
         }
         
         #Print user information
