@@ -76,8 +76,15 @@ while True:
             address = f"{address_line}, {country}"
             print(f"Address: {address}")
             break
+        
+        while True: #loop and condition for email account    
+            email_account = input("Email account: ")
+            email = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
             
-        email_account = input("Email account: ")
+            if re.match(email, email_account):
+                break
+            else:
+                print("Invalid Email Account. Please try again.")
         
         while True: #loop and condition for marital status
             marital_status = input("Marital Status (Single, Married, Divorced, Separated, or Widowed): ").capitalize()
