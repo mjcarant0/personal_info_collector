@@ -13,7 +13,7 @@ while True:
             else: 
                 break
         
-        while True:
+        while True: #loop and condition for age
             age = int(input("Age: "))
             
             if age >= 0:
@@ -21,8 +21,39 @@ while True:
             else:
                 print("Age must be a non-negative number.")
         
-        birthday = input("Birthday: ")
-        
+        while True: #loop and condition for birthday
+            print("Birthday")
+            
+            while True:
+                month = input("Month: ").capitalize()
+                
+                valid_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                
+                if month in valid_months:
+                    break
+                else:
+                    print("Invalid Month. Please try again.")
+            
+            while True:
+                day = int(input("Day: "))
+                
+                if day >= 1 and day <= 31:
+                    break
+                else:
+                    print("Invalid day. Please try again.")
+                    
+            while True:
+                year = int(input("Year: "))
+                
+                if year >= 1000 and year <= 2024:
+                    break
+                else:
+                    print("Invalid Year. Please try again.")
+            
+            birthday = f"{month} {day}, {year}"
+            
+            print(f"Birthday: {birthday}")
+            break
         
         sex = input("Sex. Enter M if you are male, and F if you are female: ").upper()
         
