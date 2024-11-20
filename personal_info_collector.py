@@ -90,9 +90,9 @@ while True:
         print(f"Age: {personal_info[name]['age']}")
         print(f"Birthday: {personal_info[name]['birthday']}")
         print(f"Sex: {personal_info[name]['sex']}")
-        print(f"Phone Number: {personal_info[name]['phone_number']}")
         print(f"Address: {personal_info[name]['address']}")
         print(f"Email Account: {personal_info[name]['email_account']}")
+        print(f"Marital Status: {personal_info[name]['marital_status']}")
         print("-----------------------------------------------------------")
         
         
