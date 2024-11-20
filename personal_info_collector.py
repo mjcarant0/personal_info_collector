@@ -23,6 +23,7 @@ while True:
         
         birthday = input("Birthday: ")
         
+        
         sex = input("Sex. Enter M if you are male, and F if you are female: ").upper()
         
         phone_number = int(input("Phone Number: "))
@@ -42,7 +43,17 @@ while True:
         }
         
         #Print user information
-        print(f"Your personal information: {personal_info}")
+        print("-----------------------------------------------------------")
+        print("This is your personal information")
+        print(f"Name: {personal_info[name]['name']}")
+        print(f"Age: {personal_info[name]['age']}")
+        print(f"Birthday: {personal_info[name]['birthday']}")
+        print(f"Sex: {personal_info[name]['sex']}")
+        print(f"Phone Number: {personal_info[name]['phone_number']}")
+        print(f"Address: {personal_info[name]['address']}")
+        print(f"Email Account: {personal_info[name]['email_account']}")
+        print("-----------------------------------------------------------")
+        
         
         #Ask user if they want to add another personal information
         add_new_info = input("Do you want to add new information? YES or NO: ").upper()
