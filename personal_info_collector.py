@@ -70,10 +70,11 @@ while True:
         while True: #loop and condition for address
             print("Address")
             
-            address_line = input("Address Line: ").capitalize()
+            address_line = input("Address Line: ")
             country = input("Country: ").capitalize()
             
             address = f"{address_line}, {country}"
+            print(f"Address: {address}")
             break
             
         email_account = input("Email account: ")
