@@ -71,8 +71,16 @@ while True:
         
         email_account = input("Email account: ")
         
-        marital_status = input("Marital Status (Single, Married, Divorced, Separated, or Widowed)").capitalize()
-        
+        while True: #loop and condition for marital status
+            marital_status = input("Marital Status (Single, Married, Divorced, Separated, or Widowed): ").capitalize()
+
+            valid_status = ['Single', 'Married', 'Divorced', 'Separated', 'Widow']
+            
+            if marital_status in valid_status:
+                break
+            else:
+                print("Invalid Marital Status. Please try again.")
+                
         personal_info[name] = {
             'name': name,
             'age': age,
