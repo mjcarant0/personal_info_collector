@@ -55,7 +55,17 @@ while True:
             print(f"Birthday: {birthday}")
             break
         
-        sex = input("Sex. Enter M if you are male, and F if you are female: ").upper()
+        while True: #loop and condition for sex
+            sex = input("Sex. Enter M if you are male, and F if you are female: ").upper()
+            
+            if sex == "M":
+                sex = "Male"
+                break
+            elif sex == "F":
+                sex = "Female"
+                break
+            else:
+                print("Invalid sex. Please try again.")
         
         phone_number = int(input("Phone Number: "))
             
