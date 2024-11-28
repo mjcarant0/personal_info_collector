@@ -135,3 +135,15 @@ while True:
 #Add information in personal_info_collector.txt file
 
 #Print all information if they answer "no"
+if add_new_info == "NO":
+    print("-----------------------------------------------------------")
+    print("All collected personal information")
+    for name, info in personal_info.items():
+        print(f"Name: {info['name']}")
+        print(f"Age: {info['age']}")
+        print(f"Birthday: {info['birthday']}")
+        print(f"Sex: {info['sex']}")
+        print(f"Address: {info['address']}")
+        print(f"Email Account: {info['email_account']}")
+        print(f"Marital Status: {info['marital_status']}")
+        print("-----------------------------------------------------------")
