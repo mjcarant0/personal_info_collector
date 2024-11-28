@@ -1,10 +1,17 @@
-import re #condition for name
+import re #condition for name and email
+import os
+
+#File path for the .txt file
+os.chdir(r'D:\BSCpE\PLD\Individual\personal_info_collector') 
+file_path = r'D:\BSCpE\PLD\Individual\personal_info_collector\personal_info.txt'
 
 #Use dictionary to store user's personal information
 personal_info = {}
 #Use while loop to collect information
 while True:
     try:
+        
+        
         while True: #loop and condition for name
             name = input("Name: ")
             
@@ -132,10 +139,22 @@ while True:
         print("Invalid Input")
     
     
-#Add information in personal_info_collector.txt file
+#Add information in personal_info.txt file
+if add_new_info == "NO":
+    with open(file_path, "a") as file:
+        file.write("All collected personal information:\n")
+        file.write("-----------------------------------------------------------\n")
+        for name, info in personal_info.items():
+            file.write(f"Name: {info['name']}\n")
+            file.write(f"Age: {info['age']}\n")
+            file.write(f"Birthday: {info['birthday']}\n")
+            file.write(f"Sex: {info['sex']}\n")
+            file.write(f"Address: {info['address']}\n")
+            file.write(f"Email Account: {info['email_account']}\n")
+            file.write(f"Marital Status: {info['marital_status']}\n")
+            file.write("-----------------------------------------------------------\n")
 
 #Print all information if they answer "no"
-if add_new_info == "NO":
     print("-----------------------------------------------------------")
     print("All collected personal information")
     for name, info in personal_info.items():
