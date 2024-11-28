@@ -10,7 +10,24 @@ personal_info = {}
 #Use while loop to collect information
 while True:
     try:
-        
+        while True: #loop and condition for username
+            username = input("Enter your username (at least 5 characters): ")
+            
+            if len(username) >= 5:
+                if username in personal_info:
+                    print("Username already exists. Please choose a different username.")
+                else:
+                    break
+            else:
+                print("Username must be at least 5 characters. Please try again.")
+                
+        while True: #loop and condition for password
+            password = input("Password (at least 8 characters): ")
+            
+            if len(password) >= 8:
+                break
+            else:
+                print("Password must be at least 8 characters. Please try again.")
         
         while True: #loop and condition for name
             name = input("Name: ")
@@ -52,7 +69,7 @@ while True:
             while True:
                 year = int(input("Year: "))
                 
-                if year >= 1000 and year <= 2024:
+                if year >= 1800 and year <= 2024:
                     break
                 else:
                     print("Invalid Year. Please try again.")
@@ -103,7 +120,9 @@ while True:
             else:
                 print("Invalid Marital Status. Please try again.")
                 
-        personal_info[name] = {
+        personal_info[username] = {
+            'username': username,
+            'password': password,
             'name': name,
             'age': age,
             'birthday': birthday,
@@ -116,13 +135,16 @@ while True:
         #Print user information
         print("-----------------------------------------------------------")
         print("This is your personal information")
-        print(f"Name: {personal_info[name]['name']}")
-        print(f"Age: {personal_info[name]['age']}")
-        print(f"Birthday: {personal_info[name]['birthday']}")
-        print(f"Sex: {personal_info[name]['sex']}")
-        print(f"Address: {personal_info[name]['address']}")
-        print(f"Email Account: {personal_info[name]['email_account']}")
-        print(f"Marital Status: {personal_info[name]['marital_status']}")
+        print(f"Username: {personal_info[username]['username']}")
+        print(f"Password: {personal_info[username]['password']}")
+        print(f"Name: {personal_info[username]['name']}")
+        print(f"Age: {personal_info[username]['age']}")
+        print(f"Birthday: {personal_info[username]['birthday']}")
+        print(f"Sex: {personal_info[username]['sex']}")
+        print(f"Address: {personal_info[username]['address']}")
+        print(f"Email Account: {personal_info[username]['email_account']}")
+        print(f"Name: {personal_info[username]['name']}")
+        print(f"Marital Status: {personal_info[username]['marital_status']}")
         print("-----------------------------------------------------------")
         
         #Ask user if they want to add another personal information
@@ -145,6 +167,8 @@ if add_new_info == "NO":
         file.write("All collected personal information:\n")
         file.write("-----------------------------------------------------------\n")
         for name, info in personal_info.items():
+            file.write(f"Username: {info['username']}\n")
+            file.write(f"Password: {info['password']}\n")
             file.write(f"Name: {info['name']}\n")
             file.write(f"Age: {info['age']}\n")
             file.write(f"Birthday: {info['birthday']}\n")
@@ -158,6 +182,7 @@ if add_new_info == "NO":
     print("-----------------------------------------------------------")
     print("All collected personal information")
     for name, info in personal_info.items():
+        print(f"Username: {personal_info[username]['username']}")
         print(f"Name: {info['name']}")
         print(f"Age: {info['age']}")
         print(f"Birthday: {info['birthday']}")
