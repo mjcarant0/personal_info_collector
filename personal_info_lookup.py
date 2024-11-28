@@ -1,6 +1,14 @@
-file_path = r'D:\BSCpE\PLD\Individual\personal_info_collector\personal_info.txt'
+file_path = r'D:\BSCpE\PLD\Individual\personal_info_collector\personal_info.txt' #file path for personal_info.txt file
 
-personal_info = {}
+personal_info = {} #empty dictionary to store info from .txt file
+
+#Read all personal information in personal_info.txt and store into dictionary
+try:
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        user_info = {}
+except:
+    print("An error occurred.")
 
 while True:
     try:
