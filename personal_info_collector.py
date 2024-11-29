@@ -145,7 +145,6 @@ while True:
         print(f"Sex: {personal_info[username]['sex']}")
         print(f"Address: {personal_info[username]['address']}")
         print(f"Email Account: {personal_info[username]['email_account']}")
-        print(f"Name: {personal_info[username]['name']}")
         print(f"Marital Status: {personal_info[username]['marital_status']}")
         print("-----------------------------------------------------------")
         
