@@ -64,16 +64,18 @@ if len(personal_info) > 0: #condition to check if the dictionary contains inform
                 print(f"Marital Status: {user_info['marital_status']}")
             else:
                 print("Username or Password is incorrect. Try again.")
-        #Ask user if they want to check other information
-            user_checking = input("Do you want to check another user? (YES/NO): ").upper()
             
-            if user_checking == "YES":
-                break
-            elif user_checking == "NO":
-                print("Exiting the program...")
-                exit()
-            else:
-                ("Invalid input. Please input 'YES' or 'NO'.")
+            #Ask user if they want to check other information
+            while True:
+                user_checking = input("Do you want to check another user? (YES/NO): ").upper()
+                
+                if user_checking == "YES":
+                    break
+                elif user_checking == "NO":
+                    print("Exiting the program...")
+                    exit()
+                else:
+                    ("Invalid input. Please input 'YES' or 'NO'.")
 
         except:
             print("Invalid input. Try again.")
