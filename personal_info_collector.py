@@ -97,7 +97,7 @@ while True:
             print(f"{Fore.YELLOW}Address{Style.RESET_ALL}")
             
             address_line = input(f"{Fore.YELLOW}Address Line: {Style.RESET_ALL}")
-            country = input(f"{Fore.YELLOW}Country: {Style.RESET_ALL}").capitalize()
+            country = input(f"{Fore.YELLOW}Country: {Style.RESET_ALL}")
             
             address = f"{address_line}, {country}"
             print(f"{Fore.YELLOW}Address: {Style.RESET_ALL}{address}")
