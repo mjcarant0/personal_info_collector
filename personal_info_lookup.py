@@ -1,3 +1,6 @@
+import colorama #adding color for text
+from colorama import Fore, Back, Style
+
 file_path = r'D:\BSCpE\PLD\Individual\personal_info_collector\personal_info.txt' #file path for personal_info.txt file
 
 personal_info = {} #empty dictionary to store info from .txt file
@@ -40,20 +43,20 @@ try:
             personal_info[user_info['username']] = user_info
         
 except:
-    print("An error occurred.")
+    print(f"{Back.RED}{Style.BRIGHT}An error occurred.{Style.RESET_ALL}")
 
 if len(personal_info) > 0: #condition to check if the dictionary contains information
     #New loop to ask the user to input their username and password
     while True:
         try:
         #Ask user to input their username
-            username = input("Enter your username: ")
+            username = input(f"{Fore.YELLOW}Enter your username: {Style.RESET_ALL}")
         #Ask user to input their password
-            password = input("Enter your password: ")
+            password = input(f"{Fore.YELLOW}Enter your password: {Style.RESET_ALL}")
         #If user's username and password in personal_info.txt, print their personal information
             if username in personal_info and personal_info[username]['password'] == password:
                 user_info = personal_info[username]
-                print("\nUser Information:")
+                print(f"{Style.BRIGHT}{Back.CYAN}\nUser Information{Style.RESET_ALL}")
                 print(f"Username: {user_info['username']}")
                 print(f"Name: {user_info['name']}")
                 print(f"Age: {user_info['age']}")
@@ -63,23 +66,25 @@ if len(personal_info) > 0: #condition to check if the dictionary contains inform
                 print(f"Email Account: {user_info['email_account']}")
                 print(f"Marital Status: {user_info['marital_status']}")
             else:
-                print("Username or Password is incorrect. Try again.")
+                print(f"{Back.RED}{Style.BRIGHT}Username or Password is incorrect. Try again.{Style.RESET_ALL}")
             
             #Ask user if they want to check other information
             while True:
-                user_checking = input("Do you want to check another user? (YES/NO): ").upper()
+                print("-----------------------------------------------------------")
+                user_checking = input(f"{Fore.CYAN}Do you want to check another user? (YES/NO): {Style.RESET_ALL}").upper()
                 
                 if user_checking == "YES":
+                    print("-----------------------------------------------------------")
                     break
                 elif user_checking == "NO":
-                    print("Exiting the program...")
+                    print(f"{Fore.RED}Exiting the program...{Style.RESET_ALL}")
                     exit()
                 else:
-                    ("Invalid input. Please input 'YES' or 'NO'.")
+                    (f"{Back.RED}{Style.BRIGHT}Invalid input. Please input 'YES' or 'NO'.{Style.RESET_ALL}")
 
         except Exception as e:
             # Handle general exceptions
-            print(f"An error occurred: {e}")
+            print(f"{Back.RED}{Style.BRIGHT}An error occurred: {e} {Style.RESET_ALL}")
 
 else: #if there is no information
-    print("No user information found. Exiting the program...")
+    print(f"{Back.RED}{Style.BRIGHT}No user information found. Exiting the program...{Style.RESET_ALL}")
