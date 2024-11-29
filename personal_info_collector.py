@@ -162,22 +162,21 @@ while True:
                     break
                 elif add_new_info == "NO":
                     #Add information in personal_info.txt file
-                    if add_new_info == "NO":
-                        with open(file_path, "a") as file:
-                            file.write("All collected personal information:\n")
+                    with open(file_path, "a") as file:
+                        file.write("All collected personal information:\n")
+                        file.write("-----------------------------------------------------------\n")
+                        for name, info in personal_info.items():
+                            file.write(f"Username: {info['username']}\n")
+                            file.write(f"Password: {info['password']}\n")
+                            file.write(f"Name: {info['name']}\n")
+                            file.write(f"Age: {info['age']}\n")
+                            file.write(f"Birthday: {info['birthday']}\n")
+                            file.write(f"Sex: {info['sex']}\n")
+                            file.write(f"Address: {info['address']}\n")
+                            file.write(f"Email Account: {info['email_account']}\n")
+                            file.write(f"Marital Status: {info['marital_status']}\n")
                             file.write("-----------------------------------------------------------\n")
-                            for name, info in personal_info.items():
-                                file.write(f"Username: {info['username']}\n")
-                                file.write(f"Password: {info['password']}\n")
-                                file.write(f"Name: {info['name']}\n")
-                                file.write(f"Age: {info['age']}\n")
-                                file.write(f"Birthday: {info['birthday']}\n")
-                                file.write(f"Sex: {info['sex']}\n")
-                                file.write(f"Address: {info['address']}\n")
-                                file.write(f"Email Account: {info['email_account']}\n")
-                                file.write(f"Marital Status: {info['marital_status']}\n")
-                                file.write("-----------------------------------------------------------\n")
-                        break
+                    break
                 else:
                     print(f"{Back.RED}{Style.BRIGHT} Invalid Input. Please enter YES or NO. {Style.RESET_ALL}")
             break
@@ -185,16 +184,18 @@ while True:
             print(f"{Back.RED}{Style.BRIGHT} Invalid Input. {Style.RESET_ALL} Error: {e}")
     
     
-    #Print all information if they answer "no"
-    print("-----------------------------------------------------------")
-    print(f"{Style.BRIGHT}{Back.CYAN} All collected personal information {Style.RESET_ALL}")
-    for name, info in personal_info.items():
-        print(f"Username: {personal_info[username]['username']}")
-        print(f"Name: {info['name']}")
-        print(f"Age: {info['age']}")
-        print(f"Birthday: {info['birthday']}")
-        print(f"Sex: {info['sex']}")
-        print(f"Address: {info['address']}")
-        print(f"Email Account: {info['email_account']}")
-        print(f"Marital Status: {info['marital_status']}")
+    if add_new_info == "NO":
+        #Print all information if they answer "no"
         print("-----------------------------------------------------------")
+        print(f"{Style.BRIGHT}{Back.CYAN} All collected personal information {Style.RESET_ALL}")
+        for name, info in personal_info.items():
+            print(f"Username: {personal_info[username]['username']}")
+            print(f"Name: {info['name']}")
+            print(f"Age: {info['age']}")
+            print(f"Birthday: {info['birthday']}")
+            print(f"Sex: {info['sex']}")
+            print(f"Address: {info['address']}")
+            print(f"Email Account: {info['email_account']}")
+            print(f"Marital Status: {info['marital_status']}")
+            print("-----------------------------------------------------------")
+        break
