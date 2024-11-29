@@ -41,13 +41,17 @@ while True:
                     break
             
             while True: #loop and condition for age
-                age = int(input(f"{Fore.YELLOW}Age: {Style.RESET_ALL}"))
+                age_input = input(f"{Fore.YELLOW}Age: {Style.RESET_ALL}")
                 
-                if age >= 0:
-                    break
-                else:
-                    print(f"{Back.RED}{Style.BRIGHT} Age must be a non-negative number. {Style.RESET_ALL}")
-            
+                try:
+                    age = int(age_input)
+                    if age >= 0:
+                        break
+                    else:
+                        print(f"{Back.RED}{Style.BRIGHT} Age must be a non-negative number. {Style.RESET_ALL}")
+                except ValueError:
+                    print(f"{Back.RED}{Style.BRIGHT} Invalid age input. Please enter a valid number. {Style.RESET_ALL}")
+                    
             while True: #loop and condition for birthday
                 print(f"{Fore.YELLOW}Birthday{Style.RESET_ALL}")
                 
@@ -150,46 +154,47 @@ while True:
             print("-----------------------------------------------------------")
             
             #ask user if they want to add new info
-            add_new_info = input(f"{Fore.CYAN} Do you want to add new information? YES or NO: {Style.RESET_ALL}").upper()
+            while True:
+                add_new_info = input(f"{Fore.CYAN} Do you want to add new information? YES or NO: {Style.RESET_ALL}").upper()
+                
+                #condition for new info
+                if add_new_info == "YES":
+                    break
+                elif add_new_info == "NO":
+                    #Add information in personal_info.txt file
+                    if add_new_info == "NO":
+                        with open(file_path, "a") as file:
+                            file.write("All collected personal information:\n")
+                            file.write("-----------------------------------------------------------\n")
+                            for name, info in personal_info.items():
+                                file.write(f"Username: {info['username']}\n")
+                                file.write(f"Password: {info['password']}\n")
+                                file.write(f"Name: {info['name']}\n")
+                                file.write(f"Age: {info['age']}\n")
+                                file.write(f"Birthday: {info['birthday']}\n")
+                                file.write(f"Sex: {info['sex']}\n")
+                                file.write(f"Address: {info['address']}\n")
+                                file.write(f"Email Account: {info['email_account']}\n")
+                                file.write(f"Marital Status: {info['marital_status']}\n")
+                                file.write("-----------------------------------------------------------\n")
+                        break
+                else:
+                    print(f"{Back.RED}{Style.BRIGHT} Invalid Input. Please enter YES or NO. {Style.RESET_ALL}")
             break
-
         except Exception as e:
             print(f"{Back.RED}{Style.BRIGHT} Invalid Input. {Style.RESET_ALL} Error: {e}")
     
-    #condition for new info
-    if add_new_info == "YES":
-        continue
-    elif add_new_info == "NO":
-        #Add information in personal_info.txt file
-        if add_new_info == "NO":
-            with open(file_path, "a") as file:
-                file.write("All collected personal information:\n")
-                file.write("-----------------------------------------------------------\n")
-                for name, info in personal_info.items():
-                    file.write(f"Username: {info['username']}\n")
-                    file.write(f"Password: {info['password']}\n")
-                    file.write(f"Name: {info['name']}\n")
-                    file.write(f"Age: {info['age']}\n")
-                    file.write(f"Birthday: {info['birthday']}\n")
-                    file.write(f"Sex: {info['sex']}\n")
-                    file.write(f"Address: {info['address']}\n")
-                    file.write(f"Email Account: {info['email_account']}\n")
-                    file.write(f"Marital Status: {info['marital_status']}\n")
-                    file.write("-----------------------------------------------------------\n")
-            break
-    else:
-        print(f"{Back.RED}{Style.BRIGHT} Invalid Input. Please enter YES or NO. {Style.RESET_ALL}")
     
-#Print all information if they answer "no"
-print("-----------------------------------------------------------")
-print(f"{Style.BRIGHT}{Back.CYAN} All collected personal information {Style.RESET_ALL}")
-for name, info in personal_info.items():
-    print(f"Username: {personal_info[username]['username']}")
-    print(f"Name: {info['name']}")
-    print(f"Age: {info['age']}")
-    print(f"Birthday: {info['birthday']}")
-    print(f"Sex: {info['sex']}")
-    print(f"Address: {info['address']}")
-    print(f"Email Account: {info['email_account']}")
-    print(f"Marital Status: {info['marital_status']}")
+    #Print all information if they answer "no"
     print("-----------------------------------------------------------")
+    print(f"{Style.BRIGHT}{Back.CYAN} All collected personal information {Style.RESET_ALL}")
+    for name, info in personal_info.items():
+        print(f"Username: {personal_info[username]['username']}")
+        print(f"Name: {info['name']}")
+        print(f"Age: {info['age']}")
+        print(f"Birthday: {info['birthday']}")
+        print(f"Sex: {info['sex']}")
+        print(f"Address: {info['address']}")
+        print(f"Email Account: {info['email_account']}")
+        print(f"Marital Status: {info['marital_status']}")
+        print("-----------------------------------------------------------")
