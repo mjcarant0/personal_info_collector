@@ -189,7 +189,7 @@ while True:
         print("-----------------------------------------------------------")
         print(f"{Style.BRIGHT}{Back.CYAN} All collected personal information {Style.RESET_ALL}")
         for name, info in personal_info.items():
-            print(f"Username: {personal_info[username]['username']}")
+            print(f"Username: {info['username']}")
             print(f"Name: {info['name']}")
             print(f"Age: {info['age']}")
             print(f"Birthday: {info['birthday']}")
