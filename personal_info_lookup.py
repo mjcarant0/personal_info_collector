@@ -42,28 +42,41 @@ try:
 except:
     print("An error occurred.")
 
-#New loop to ask the user to input their username and password
-while True:
-    try:
-    #Ask user to input their username
-        username = input("Enter your username: ")
-    #Ask user to input their password
-        password = input("Enter your password: ")
-    #If user's username and password in personal_info.txt, print their personal information
-        if username in personal_info and personal_info[username]['password'] == password:
-            user_info = personal_info[username]
-            print("\nUser Information:")
-            print(f"Username: {user_info['username']}")
-            print(f"Name: {user_info['name']}")
-            print(f"Age: {user_info['age']}")
-            print(f"Birthday: {user_info['birthday']}")
-            print(f"Sex: {user_info['sex']}")
-            print(f"Address: {user_info['address']}")
-            print(f"Email Account: {user_info['email_account']}")
-            print(f"Marital Status: {user_info['marital_status']}")
-        else:
-            print("Username or Password is incorrect. Try again.")
-    #Ask user if they want to check other information
+if len(personal_info) > 0: #condition to check if the dictionary contains information
+    #New loop to ask the user to input their username and password
+    while True:
+        try:
+        #Ask user to input their username
+            username = input("Enter your username: ")
+        #Ask user to input their password
+            password = input("Enter your password: ")
+        #If user's username and password in personal_info.txt, print their personal information
+            if username in personal_info and personal_info[username]['password'] == password:
+                user_info = personal_info[username]
+                print("\nUser Information:")
+                print(f"Username: {user_info['username']}")
+                print(f"Name: {user_info['name']}")
+                print(f"Age: {user_info['age']}")
+                print(f"Birthday: {user_info['birthday']}")
+                print(f"Sex: {user_info['sex']}")
+                print(f"Address: {user_info['address']}")
+                print(f"Email Account: {user_info['email_account']}")
+                print(f"Marital Status: {user_info['marital_status']}")
+            else:
+                print("Username or Password is incorrect. Try again.")
+        #Ask user if they want to check other information
+            user_checking = input("Do you want to check another user? (YES/NO): ").upper()
+            
+            if user_checking == "YES":
+                break
+            elif user_checking == "NO":
+                print("Exiting the program...")
+                exit()
+            else:
+                ("Invalid input. Please input 'YES' or 'NO'.")
 
-    except:
-        print("Invalid input. Try again.")
+        except:
+            print("Invalid input. Try again.")
+
+else: #if there is no information
+    print("No user information found. Exiting the program...")
