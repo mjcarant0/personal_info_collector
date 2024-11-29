@@ -77,8 +77,9 @@ if len(personal_info) > 0: #condition to check if the dictionary contains inform
                 else:
                     ("Invalid input. Please input 'YES' or 'NO'.")
 
-        except:
-            print("Invalid input. Try again.")
+        except Exception as e:
+            # Handle general exceptions
+            print(f"An error occurred: {e}")
 
 else: #if there is no information
     print("No user information found. Exiting the program...")
